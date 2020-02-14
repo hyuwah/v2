@@ -11,7 +11,13 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
@@ -21,11 +27,11 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "9e84a292b75a3d20b34821fca15d3a18"
+    "revision": "1cfdba361ff9e6fd4345c0df739c428d"
   },
   {
-    "url": "assets/css/0.styles.3b82c730.css",
-    "revision": "eff03ac8a437c32bf8bc0f403d3f2ce6"
+    "url": "assets/css/0.styles.46b106d8.css",
+    "revision": "ad48ff7693aa83903121b379733fec89"
   },
   {
     "url": "assets/fonts/MaterialIcons-Regular.586090b3.ttf",
@@ -44,47 +50,46 @@ self.__precacheManifest = [
     "revision": "bca3a1873ac988faff0817eca96b2d86"
   },
   {
-    "url": "assets/js/2.0556b640.js",
-    "revision": "999d0ae25a70a7efbf9e521e5ca2559d"
+    "url": "assets/js/2.f3188073.js",
+    "revision": "9900aabac3e2d6a514ecaa0a7995fbf9"
   },
   {
-    "url": "assets/js/3.980346f5.js",
-    "revision": "c5b63ba819d9458e8fc1893821cd734d"
+    "url": "assets/js/3.839480b0.js",
+    "revision": "b669db2a5f9dc4c1ed8fb8683eaff07e"
   },
   {
-    "url": "assets/js/4.87d36461.js",
-    "revision": "62ed25ac7bfd843e2d4fc5a9c96e7882"
+    "url": "assets/js/4.9d2a2f80.js",
+    "revision": "182249547c3157aa4845cfa03b1264e9"
   },
   {
-    "url": "assets/js/5.8b127090.js",
-    "revision": "4ad4c2fcdc5d31940d480e3c1521a1af"
+    "url": "assets/js/5.9e2ea973.js",
+    "revision": "1298bbe0390acccad959404630e61d95"
   },
   {
-    "url": "assets/js/6.ceb6b89e.js",
-    "revision": "ff435777e7e7bca1b31b874ac3d73ce7"
+    "url": "assets/js/6.12c5d880.js",
+    "revision": "51837e476c5267960a2042eba44787cb"
   },
   {
-    "url": "assets/js/7.24e673ef.js",
-    "revision": "a948d93624158a62f9b0b7bae10b4d83"
+    "url": "assets/js/7.94b641fd.js",
+    "revision": "7ac536f9f217f42532691486363a99c5"
   },
   {
-    "url": "assets/js/8.80288b9c.js",
-    "revision": "6816a155f0279e885f8acc474516b368"
+    "url": "assets/js/8.4892a3f9.js",
+    "revision": "6b2e3df91fd99ac028d159cf39407ab5"
   },
   {
-    "url": "assets/js/app.0920a32a.js",
-    "revision": "f44298df5dfe1a3cf46653dcd89d7ed3"
+    "url": "assets/js/app.5e5a74f9.js",
+    "revision": "26f93ee0efc288c6d1d1be8eae02ebb4"
   },
   {
     "url": "index.html",
-    "revision": "082e2636384f8b9b116ace6e7cb4b60a"
+    "revision": "2622ef37f87a595942d151ac273bf02f"
   },
   {
     "url": "portfolio/index.html",
-    "revision": "c3f17d4b116ff17bb5d291ed8e0073c6"
+    "revision": "b5faf0343f24ba96486ffad0967c5edd"
   }
 ].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 addEventListener('message', event => {
   const replyPort = event.ports[0]
